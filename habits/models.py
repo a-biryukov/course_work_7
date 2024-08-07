@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.db import models
 
 from config.settings import AUTH_USER_MODEL, NULLABLE
@@ -26,14 +28,15 @@ class Habit(models.Model):
         verbose_name='Место выполнения привычки',
         help_text='Введите место, в котором неоходимо выполнять привычку'
     )
-    time_doing = models.DurationField(
+    duration = models.DurationField(
+        default=timedelta(seconds=120),
         verbose_name='Время на выполнение привычки',
         help_text='Введите предположительное время, в течении которого будете выполнять привычку'
     )
     periodicity = models.CharField(
+        default='Ежедневно',
         verbose_name='Периодичность выполнения привычки',
         help_text='Введите периодичность выполнения привычки',
-        default='Ежедневно',
         choices=PERIODICITY
     )
     reward = models.CharField(
@@ -42,9 +45,21 @@ class Habit(models.Model):
         help_text='Введите вознаграждение за выполнение привычки',
         **NULLABLE
     )
-    publicity = models.BooleanField(
-        verbose_name='Публичная привычка',
-        help_text='Могут ли другие пользователи видеть вашу привычку?'
+    related_habit = models.ForeignKey(
+        'self',
+        on_delete=models.CASCADE,
+        verbose_name='Связанная привычка',
+        help_text='Укажите связанную привычку',
+        **NULLABLE
+    )
+    is_pleasurable = models.BooleanField(
+        default=False,
+        verbose_name='Признак приятной привычки'
+    )
+    is_public = models.BooleanField(
+        default=True,
+        verbose_name='Признак публичности',
+        help_text='Могут ли другие пользователи видеть эту привычку'
     )
 
     class Meta:
@@ -55,34 +70,12 @@ class Habit(models.Model):
         return self.action
 
 
-class RelatedHabit(models.Model):
-    habit = models.ForeignKey(
-        Habit,
-        on_delete=models.CASCADE,
-        verbose_name='Полезная привычка'
-    )
-    action = models.CharField(
-        max_length=100,
-        verbose_name='Действие',
-        help_text='Укажите действие, которое представляет собой привычка',
-    )
-    is_pleasurable = models.BooleanField(
-        verbose_name='Признак приятной привычки'
-    )
-
-    class Meta:
-        verbose_name = 'Связанная привычка'
-        verbose_name_plural = 'Связанные привычки'
-
-    def __str__(self):
-        return f'Привычка {self.action}, приятная - {self.is_pleasurable}'
-
-
 class DaysOfWeek(models.Model):
-    habit = models.ForeignKey(
+    habit = models.OneToOneField(
         Habit,
         on_delete=models.CASCADE,
-        verbose_name='Привычка'
+        verbose_name='Привычка',
+        **NULLABLE
     )
     monday = models.BooleanField(
         default=True,
@@ -130,10 +123,11 @@ class DaysOfWeek(models.Model):
 
 
 class Runtime(models.Model):
-    habit = models.ForeignKey(
+    habit = models.OneToOneField(
         Habit,
         on_delete=models.CASCADE,
-        verbose_name='Привычка'
+        verbose_name='Привычка',
+        **NULLABLE
     )
     time_1 = models.TimeField(
         verbose_name='Время выполнения привычки',
