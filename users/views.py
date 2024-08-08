@@ -1,22 +1,19 @@
-from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
 
+from habits.paginators import CustomPaginator
 from users.models import User
-from users.permissions import IsUser, IsStaff
-from users.serializer import UserSerializer
+from users.permissions import IsUser
+from users.serializer import UserSerializer, UserListSerializer
 
 
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    pagination_class = CustomPaginator
 
     def get_permissions(self):
-        if self.action == 'create':
-            self.permission_classes = [AllowAny]
-        elif self.action in ['update', 'destroy', 'retrieve']:
+        if self.action in ['update', 'destroy', 'retrieve']:
             self.permission_classes = [IsUser]
-        elif self.action == 'list':
-            self.permission_classes = [IsStaff]
 
         return super().get_permissions()
 
@@ -24,3 +21,9 @@ class UserViewSet(ModelViewSet):
         user = serializer.save(is_active=True)
         user.set_password(user.password)
         user.save()
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return UserListSerializer
+
+        return super().get_serializer_class()
