@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from habits.models import Habit, DaysOfWeek, Runtime
+from habits import validators
 
 
 class DaysOfWeekSerializer(serializers.ModelSerializer):
@@ -24,6 +25,13 @@ class HabitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Habit
         fields = '__all__'
+        validators = [
+            validators.FieldCompatibilityValidator('related_habit', 'reward'),
+            validators.DurationValidator('duration'),
+            validators.RelatedIsNotPleasurableValidator('related_habit'),
+            validators.NotRewardNotRelatedValidator('is_pleasurable', 'related_habit', 'reward'),
+            validators.DaysOfWeekValidator('days_of_week')
+        ]
 
     def create(self, validated_data):
         days_of_week_data = validated_data.pop('daysofweek')
