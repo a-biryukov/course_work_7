@@ -29,7 +29,7 @@ class Habit(models.Model):
         help_text='Введите место, в котором неоходимо выполнять привычку'
     )
     duration = models.DurationField(
-        default=timedelta(seconds=120),
+        default=timedelta(seconds=60),
         verbose_name='Время на выполнение привычки',
         help_text='Введите предположительное время, в течении которого будете выполнять привычку'
     )
@@ -57,7 +57,7 @@ class Habit(models.Model):
         verbose_name='Признак приятной привычки'
     )
     is_public = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name='Признак публичности',
         help_text='Могут ли другие пользователи видеть эту привычку'
     )
