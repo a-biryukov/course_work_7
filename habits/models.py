@@ -112,12 +112,12 @@ class DaysOfWeek(models.Model):
 
     def __str__(self):
         return (
-            f'Понедельник - {self.monday}'
-            f'Вторник - {self.tuesday}'
-            f'Среда - {self.wednesday}'
-            f'Четверг - {self.thursday}'
-            f'Пятница - {self.friday}'
-            f'Суббота - {self.saturday}'
+            f'Понедельник - {self.monday}, '
+            f'Вторник - {self.tuesday}, '
+            f'Среда - {self.wednesday}, '
+            f'Четверг - {self.thursday}, '
+            f'Пятница - {self.friday}, '
+            f'Суббота - {self.saturday}, '
             f'Воскресенье - {self.sunday}'
         )
 
@@ -160,9 +160,9 @@ class Runtime(models.Model):
 
     def __str__(self):
         return (
-            f'1. {self.time_1},'
-            f'2. {self.time_2}'
-            f'3. {self.time_3}'
-            f'4. {self.time_4}'
+            f'1. {self.time_1}, '
+            f'2. {self.time_2}, ' 
+            f'3. {self.time_3}, ' 
+            f'4. {self.time_4}, ' 
             f'5. {self.time_5}'
         )
