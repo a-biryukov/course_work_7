@@ -154,5 +154,7 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
-NULLABLE = {"blank": True, "null": True}
+TELEGRAM_URL = 'https://api.telegram.org/bot'
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 
+NULLABLE = {"blank": True, "null": True}
