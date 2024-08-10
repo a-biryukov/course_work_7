@@ -6,12 +6,6 @@ from config.settings import AUTH_USER_MODEL, NULLABLE
 
 
 class Habit(models.Model):
-    PERIODICITY = (
-        ('Несколько раз в день', 'Несколько раз в день'),
-        ('Ежедневно', 'Ежедневно'),
-        ('В определенные дни недели', 'В определенные дни недели')
-    )
-
     user = models.ForeignKey(
         AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -32,12 +26,6 @@ class Habit(models.Model):
         default=timedelta(seconds=60),
         verbose_name='Время на выполнение привычки',
         help_text='Введите предположительное время, в течении которого будете выполнять привычку'
-    )
-    periodicity = models.CharField(
-        default='Ежедневно',
-        verbose_name='Периодичность выполнения привычки',
-        help_text='Введите периодичность выполнения привычки',
-        choices=PERIODICITY
     )
     reward = models.CharField(
         max_length=254,
