@@ -6,7 +6,7 @@ from habits import models
 @admin.register(models.Habit)
 class UserAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'user', 'action', 'place', 'duration', 'periodicity',
+        'id', 'user', 'action', 'place', 'duration',
         'reward', 'related_habit', 'is_pleasurable', 'is_public',
     )
 
