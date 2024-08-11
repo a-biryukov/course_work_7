@@ -4,6 +4,7 @@ from habits.models import Habit
 from habits.paginators import CustomPaginator
 from habits.permissions import IsOwner
 from habits.serializer import HabitSerializer
+from telegram.services import get_habits
 
 
 class HabitViewSet(viewsets.ModelViewSet):
