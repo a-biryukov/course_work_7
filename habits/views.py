@@ -4,7 +4,6 @@ from habits.models import Habit
 from habits.paginators import CustomPaginator
 from habits.permissions import IsOwner
 from habits.serializer import HabitSerializer
-from telegram.services import get_habits
 
 
 class HabitViewSet(viewsets.ModelViewSet):
@@ -31,4 +30,3 @@ class PublicHabitsListAPIView(generics.ListAPIView):
     queryset = Habit.objects.filter(is_public=True).order_by('id')
     serializer_class = HabitSerializer
     pagination_class = CustomPaginator
-

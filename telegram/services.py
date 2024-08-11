@@ -50,7 +50,7 @@ def get_habits() -> list:
     }
 
     habits = Habit.objects.filter(**params)
-    print(habits)
+
     habits = (
         habits.filter(runtime__time_1__gte=time_send_message_1, runtime__time_1__lte=time_send_message_2) |
         habits.filter(runtime__time_2__gte=time_send_message_1, runtime__time_2__lte=time_send_message_2) |
