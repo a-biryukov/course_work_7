@@ -23,5 +23,6 @@ from config.settings import MEDIA_URL, MEDIA_ROOT
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('habits/', include('habits.urls', namespace='habits')),
-    path('users/', include('users.urls', namespace='users'))
+    path('users/', include('users.urls', namespace='users')),
+    path('telegram/', include('telegram.urls', namespace='telegram'))
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
