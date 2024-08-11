@@ -86,4 +86,3 @@ class HabitTestCase(APITestCase):
         result = response.json().get('results')[0]
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(result, data)
-
