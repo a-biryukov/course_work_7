@@ -12,6 +12,7 @@ class UserTestCase(APITestCase):
         self.user1 = User.objects.create(email='user1@mail.ru', password='123qwe')
 
     def test_user_create(self):
+        """Тестирование создания пользователя"""
         data = {'email': 'user2@mail.ru', 'password': '123qwe'}
         response = self.client.post('/users/', data=data)
         result = response.json()
@@ -20,6 +21,7 @@ class UserTestCase(APITestCase):
         self.assertEqual(User.objects.all().count(), 3)
 
     def test_user_retrieve(self):
+        """Тестирование получения данных пользователя"""
         self.client.force_authenticate(user=self.user)
 
         url = reverse('users:user-detail', args=(self.user.pk,))
@@ -33,6 +35,7 @@ class UserTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_user_update(self):
+        """Тестирование обновления данных пользователя"""
         self.client.force_authenticate(user=self.user)
 
         data = {'email': 'user3@mail.ru'}
@@ -47,7 +50,7 @@ class UserTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_user_destroy(self):
-
+        """Тестирование удаления пользователя"""
         self.client.force_authenticate(user=self.user)
 
         url = reverse('users:user-detail', args=(self.user.pk,))
@@ -60,6 +63,7 @@ class UserTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_user_list(self):
+        """Тестерование получения списка пользователей"""
         data = [{'email': 'user@mail.ru'}, {'email': 'user1@mail.ru'}]
         self.client.force_authenticate(user=self.user)
         response = self.client.get('/users/')

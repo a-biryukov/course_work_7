@@ -23,10 +23,11 @@ class HabitViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = super().get_queryset()
 
-        return queryset.filter(user=self.request.user).order_by('id')
+        return queryset.filter(user=self.request.user.id).order_by('id')
 
 
 class PublicHabitsListAPIView(generics.ListAPIView):
+    """Получение списка публичных привычек"""
     queryset = Habit.objects.filter(is_public=True).order_by('id')
     serializer_class = HabitSerializer
     pagination_class = CustomPaginator
