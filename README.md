@@ -6,13 +6,12 @@
 + Заполнить файл .env-sample и переименовать его в .env
 + Установить зависимости
   + poetry install или pip install -r requirements.txt
-+ Создть и применить мигации 
-  + python manage.py makemigrations
++ Применить мигации 
   + python manage.py migrate
 + Заполнить фикстурами(при необходимости), которые лежат в папке fixtures
   + python manage.py loaddata fixtures/habits_data.json
   + python manage.py loaddata fixtures/users_data.json
-+ Запустить сервис
++ Запустить сервер
   + python manage.py runserver
 ---
 **Документация**
