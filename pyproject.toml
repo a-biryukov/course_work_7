@@ -7,7 +7,24 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+django = "^5.0.7"
+psycopg2-binary = "^2.9.9"
+python-dotenv = "^1.0.1"
+pillow = "^10.4.0"
+djangorestframework = "^3.15.2"
+djangorestframework-simplejwt = "^5.3.1"
+celery = "^5.4.0"
+django-celery-beat = "^2.6.0"
+eventlet = "^0.36.1"
+redis = "^5.0.8"
+django-cors-headers = "^4.4.0"
+drf-yasg = "^1.21.7"
+setuptools = "^72.1.0"
 
+
+[tool.poetry.group.dev.dependencies]
+coverage = "^7.6.1"
+flake8 = "^7.1.1"
 
 [build-system]
 requires = ["poetry-core"]

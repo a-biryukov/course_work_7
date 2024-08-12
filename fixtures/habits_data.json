@@ -1,0 +1,242 @@
+[
+  {
+    "model": "habits.habit",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "action": "Чистить зубы",
+      "place": "Ванная комната",
+      "duration": "00:01:00",
+      "reward": "Пол-часа игры в приставку",
+      "related_habit": null,
+      "is_pleasurable": false,
+      "is_public": true
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 2,
+    "fields": {
+      "user": 3,
+      "action": "Убрать посуду после еды",
+      "place": "Кухня",
+      "duration": "00:01:00",
+      "reward": "Кусочек тортика",
+      "related_habit": null,
+      "is_pleasurable": false,
+      "is_public": true
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 3,
+    "fields": {
+      "user": 4,
+      "action": "Полежать в ванной",
+      "place": "Ванная комната",
+      "duration": "00:01:00",
+      "reward": null,
+      "related_habit": null,
+      "is_pleasurable": true,
+      "is_public": true
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 4,
+    "fields": {
+      "user": 2,
+      "action": "Начать заниматься спортом",
+      "place": "Спортивный зал",
+      "duration": "00:01:00",
+      "reward": "",
+      "related_habit": 3,
+      "is_pleasurable": false,
+      "is_public": true
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 5,
+    "fields": {
+      "user": 2,
+      "action": "Читать",
+      "place": "Дом",
+      "duration": "00:02:00",
+      "reward": "Стакан горячего шоколада",
+      "related_habit": null,
+      "is_pleasurable": false,
+      "is_public": true
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 6,
+    "fields": {
+      "user": 4,
+      "action": "Медитировать",
+      "place": "На полу",
+      "duration": "00:01:30",
+      "reward": "Мороженое",
+      "related_habit": null,
+      "is_pleasurable": false,
+      "is_public": true
+    }
+  },
+  {
+    "model": "habits.daysofweek",
+    "pk": 1,
+    "fields": {
+      "habit": 1,
+      "monday": true,
+      "tuesday": true,
+      "wednesday": true,
+      "thursday": true,
+      "friday": true,
+      "saturday": true,
+      "sunday": true
+    }
+  },
+  {
+    "model": "habits.daysofweek",
+    "pk": 2,
+    "fields": {
+      "habit": 2,
+      "monday": true,
+      "tuesday": true,
+      "wednesday": true,
+      "thursday": true,
+      "friday": true,
+      "saturday": true,
+      "sunday": true
+    }
+  },
+  {
+    "model": "habits.daysofweek",
+    "pk": 3,
+    "fields": {
+      "habit": 3,
+      "monday": true,
+      "tuesday": false,
+      "wednesday": true,
+      "thursday": false,
+      "friday": true,
+      "saturday": false,
+      "sunday": false
+    }
+  },
+  {
+    "model": "habits.daysofweek",
+    "pk": 4,
+    "fields": {
+      "habit": 4,
+      "monday": true,
+      "tuesday": false,
+      "wednesday": true,
+      "thursday": false,
+      "friday": true,
+      "saturday": false,
+      "sunday": false
+    }
+  },
+  {
+    "model": "habits.daysofweek",
+    "pk": 5,
+    "fields": {
+      "habit": 5,
+      "monday": true,
+      "tuesday": true,
+      "wednesday": true,
+      "thursday": true,
+      "friday": true,
+      "saturday": true,
+      "sunday": false
+    }
+  },
+  {
+    "model": "habits.daysofweek",
+    "pk": 6,
+    "fields": {
+      "habit": 6,
+      "monday": true,
+      "tuesday": true,
+      "wednesday": true,
+      "thursday": true,
+      "friday": true,
+      "saturday": true,
+      "sunday": true
+    }
+  },
+  {
+    "model": "habits.runtime",
+    "pk": 1,
+    "fields": {
+      "habit": 1,
+      "time_1": "08:00:00",
+      "time_2": "14:00:00",
+      "time_3": "22:00:00",
+      "time_4": null,
+      "time_5": null
+    }
+  },
+  {
+    "model": "habits.runtime",
+    "pk": 2,
+    "fields": {
+      "habit": 2,
+      "time_1": "07:30:00",
+      "time_2": "13:30:00",
+      "time_3": "21:30:00",
+      "time_4": null,
+      "time_5": null
+    }
+  },
+  {
+    "model": "habits.runtime",
+    "pk": 3,
+    "fields": {
+      "habit": 3,
+      "time_1": "19:00:00",
+      "time_2": null,
+      "time_3": null,
+      "time_4": null,
+      "time_5": null
+    }
+  },
+  {
+    "model": "habits.runtime",
+    "pk": 4,
+    "fields": {
+      "habit": 4,
+      "time_1": "18:00:00",
+      "time_2": null,
+      "time_3": null,
+      "time_4": null,
+      "time_5": null
+    }
+  },
+  {
+    "model": "habits.runtime",
+    "pk": 5,
+    "fields": {
+      "habit": 5,
+      "time_1": "21:00:00",
+      "time_2": null,
+      "time_3": null,
+      "time_4": null,
+      "time_5": null
+    }
+  },
+  {
+    "model": "habits.runtime",
+    "pk": 6,
+    "fields": {
+      "habit": 6,
+      "time_1": "08:00:00",
+      "time_2": "21:00:00",
+      "time_3": null,
+      "time_4": null,
+      "time_5": null
+    }
+  }
+]
