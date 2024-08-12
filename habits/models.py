@@ -66,31 +66,31 @@ class DaysOfWeek(models.Model):
         **NULLABLE
     )
     monday = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name='Понедельник'
     )
     tuesday = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name='Вторник'
     )
     wednesday = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name='Среда'
     )
     thursday = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name='Четверг'
     )
     friday = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name='Пятница'
     )
     saturday = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name='Суббота'
     )
     sunday = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name='Воскресенье'
     )
 
