@@ -63,6 +63,11 @@
 {
     "action": "Чистить зубы",
     "place": "Ванная комната",
+    "duration": "60",
+    "related_habit": null
+    "reward": null,
+    "is_pleasurable": false,
+    "is_public": false,
     "days_of_week": {
         "monday": true,
         "tuesday": false,
@@ -79,10 +84,6 @@
         "time_4": null,
         "time_5": null
     },
-    "duration": "60",
-    "reward": null,
-    "is_pleasurable": false,
-    "is_public": false,
-    "related_habit": null
+
 }
 </pre>
