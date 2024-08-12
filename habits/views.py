@@ -15,7 +15,7 @@ class HabitViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
     def get_permissions(self):
-        if self.action in ['retrieve', 'update', 'destroy']:
+        if self.action in ['retrieve', 'update', 'destroy', 'partial_update']:
             self.permission_classes = [IsOwner]
 
         return super().get_permissions()

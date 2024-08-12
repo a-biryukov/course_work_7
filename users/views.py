@@ -1,3 +1,4 @@
+from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
 
 from habits.paginators import CustomPaginator
@@ -12,13 +13,20 @@ class UserViewSet(ModelViewSet):
     pagination_class = CustomPaginator
 
     def get_permissions(self):
-        if self.action in ['update', 'destroy', 'retrieve']:
+        if self.action in ['update', 'destroy', 'retrieve', 'partial_update']:
             self.permission_classes = [IsUser]
+        elif self.action == 'create':
+            self.permission_classes = [AllowAny]
 
         return super().get_permissions()
 
     def perform_create(self, serializer):
         user = serializer.save(is_active=True)
+        user.set_password(user.password)
+        user.save()
+
+    def perform_update(self, serializer):
+        user = serializer.save()
         user.set_password(user.password)
         user.save()
 
