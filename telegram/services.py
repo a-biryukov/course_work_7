@@ -30,7 +30,7 @@ def get_habits() -> list:
     :return: Список объектов класса Habit
     """
     days_of_week = {
-        7: 'monday',
+        0: 'monday',
         1: 'tuesday',
         2: 'wednesday',
         3: 'thursday',
