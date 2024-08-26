@@ -66,7 +66,7 @@ class HabitSerializer(serializers.ModelSerializer):
             days_of_week.sunday = days_of_week_data.get('sunday', days_of_week.sunday)
             days_of_week.save()
 
-        if validated_data.get('daysofweek'):
+        if validated_data.get('runtime'):
             runtime_data = validated_data.pop('runtime')
             runtime = instance.runtime
 
