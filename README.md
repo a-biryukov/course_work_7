@@ -4,15 +4,10 @@
 **Как использовать:**
 + Клонировать репозиторий
 + Заполнить файл .env-sample и переименовать его в .env
-+ Установить зависимости
-  + poetry install или pip install -r requirements.txt
-+ Применить мигации 
-  + python manage.py migrate
-+ Заполнить фикстурами(при необходимости), которые лежат в папке fixtures
-  + python manage.py loaddata fixtures/habits_data.json
-  + python manage.py loaddata fixtures/users_data.json
-+ Запустить сервер
-  + python manage.py runserver
++ В settings заполнить ALLOWED_HOSTS, CORS_ALLOWED_ORIGINS и CSRF_TRUSTED_ORIGINS
++ Установить docker и docker-compose
++ Собрать образы и запустить контейнеры командой:
+  + docker-compose up -d —build
 ---
 **Документация**
 + http://localhost:8000/redoc/
