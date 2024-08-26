@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['95.183.12.206']
 
 
 # Application definition
@@ -91,11 +91,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('HOST'),
-        'PORT': os.getenv('PORT')
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_HOST'),
+        'PORT': os.getenv('POSTGRES_PORT')
     }
 }
 
@@ -135,6 +135,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+ENV_TYPE = os.getenv('ENV_TYPE')
+
+if ENV_TYPE == 'local':
+    STATICFILES_DIRS = (
+        BASE_DIR / 'static',
+    )
+else:
+    STATIC_ROOT = BASE_DIR / 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -179,11 +188,11 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8000',
+    'http://95.183.12.206:8000',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:8000',
+    'http://95.183.12.206:8000',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False
