@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['95.183.12.206']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -188,11 +188,11 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    'http://95.183.12.206:8000',
+
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://95.183.12.206:8000',
+
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False
