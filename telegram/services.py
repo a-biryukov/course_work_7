@@ -30,13 +30,13 @@ def get_habits() -> list:
     :return: Список объектов класса Habit
     """
     days_of_week = {
+        0: 'monday',
         1: 'tuesday',
         2: 'wednesday',
         3: 'thursday',
         4: 'friday',
         5: 'saturday',
-        6: 'sunday',
-        7: 'monday',
+        6: 'sunday'
     }
     zone = pytz.timezone(TIME_ZONE)
     datetime_now = datetime.now(zone)
